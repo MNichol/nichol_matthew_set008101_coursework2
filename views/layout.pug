@@ -1,0 +1,25 @@
+doctype
+html 
+    head
+    title= title
+    link(rel='stylesheet', href='/static/style.css', type='text/css')
+    script(src='/static/core.js')
+
+    body        
+        header
+            h1= title
+            
+            div(id="user_logged_msg")
+                
+
+        //Content from individual PUG files
+        block content 
+    
+        //Navigation of the website
+        ul#MenuOverlord
+                li#MenuSub
+                    a#MenuServ(href="/") Homepage 
+                li#MenuSub
+                    a#MenuServ(href="/messaging") Messaging
+                li#MenuSub          
+                    a#MenuServ(href="/inbox") Inbox  

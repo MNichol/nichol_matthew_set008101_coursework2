@@ -1,0 +1,15 @@
+extend layout
+
+block content 
+
+    p Please enter your login information 
+
+    form(action="/accounts" method="POST")
+            label#SignLabel(for="user_name") Please Enter a username!   
+                input(rows = "1" cols ="50" name="user_name" placeholder = "username")
+                br
+            label#SignLabel(for="user_pass") Please enter a password 
+                input(rows = "1" cols = "50" name="user_pass" placeholder = "password")
+                br
+            input(type="Submit" value = "Login")
+    

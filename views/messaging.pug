@@ -1,0 +1,35 @@
+extends layout
+
+block content 
+
+    #input_zone
+        textarea(rows="5", cols="50", autofocus id="u_message" name="plain" placeholder ="Type your message here")
+        div(id="caesar_shift")
+
+        form#CipherSelection
+            select(name="cipherlist", id="cipherlist")
+                option(value="none") Select a cipher to use
+                option(value="ROT13") ROT13 
+                option(value="CAESAR") CAESAR
+                option(value="ATBASH") ATBASH
+            button(type="button",onclick="cipherselect()", id="cipher_menu") This One!
+
+            div(id="caesar_shift")
+
+        div(id="Encrypt/Decrypt")
+        div(id="Encrypt")
+        div(id="Decrypt")
+
+        #output_zone
+            div(id="Output")
+
+        
+        #sending_zone
+        form(action="/inbox" method="POST")
+            div(id="request")
+            div(id="Sender")
+            div(id="body")
+            div(id="plain")
+            div(id="cipher")
+            div(id="shift")
+            div(id="send")

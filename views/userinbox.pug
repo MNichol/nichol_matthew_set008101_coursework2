@@ -1,0 +1,28 @@
+extends layout
+
+block content 
+
+    - var user= username
+    - var usermsg= usermessages
+
+    p#WelcomeMessage Hello #{user}, you currently have #{usermsg.length} messages in your inbox!
+    
+    p #{messages}
+
+
+    for n in usermsg
+        if n.cipher === 'CAESAR'
+            ul
+                p You recieved a secret message with the #{n.cipher} cipher , with a shift of #{n.shift}. The message was:
+                p #{n.body}
+                p The decrypted message is:
+                p #{n.plain}
+                p --------------------------------------------------------------------------------
+                
+        else 
+            ul
+                p You recieved a secret message with the #{n.cipher} cipher. The message was:
+                p #{n.body}
+                p The decrypted message is:
+                p #{n.plain}
+                p --------------------------------------------------------------------------------

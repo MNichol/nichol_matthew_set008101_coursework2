@@ -1,0 +1,16 @@
+extends layout
+
+block content 
+
+    h2 | New Members |
+    p If you're new here, fill out the form below to create a profile
+
+    #SignUp
+        form(action="/users" method="POST")
+            label#SignLabel(for="username") Please Enter a username!   
+                input(rows = "1" cols ="50" name="new_username" placeholder = "username")
+                br
+            label#SignLabel(for="password") Please enter a password 
+                input(rows = "1" cols = "50" name="new_password" id="password" placeholder = "password")
+                br
+            input(type="Submit" value = "Sign Up")

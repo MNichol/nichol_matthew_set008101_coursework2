@@ -1,0 +1,65 @@
+body {
+  text-align: center;
+  font-family: Arial;
+  font-size:15px;
+  
+  line-height:1.5;
+  
+  padding:0;
+  
+  background-color:#0684B2;
+}
+
+p {
+	font-weight:700;
+}
+
+header{
+	background:#000000;
+	color:#ffffff;
+}
+
+#input_zone {
+	text-align: center;
+	padding: 25px;
+}
+
+#output_zone {
+	text-align: center;
+	padding: 25px;
+	font-weight: 700;
+}
+
+#Output {
+	font-weight: 900;
+	color: #ffffff;
+	background:#000000;
+}
+
+#test {
+	background: #fff000
+}
+
+#logindetails {
+	text-align: right
+}
+
+#MenuOverlord {
+	list-style-type: none;
+	background: #000000;
+
+}
+
+#SignLabel {
+	padding:10px;
+}
+
+
+a:link {
+	color: #ffffff;
+}
+
+a:visited{
+	color: #ffffff;
+}
+
