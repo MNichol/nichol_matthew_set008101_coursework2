@@ -1,0 +1,22 @@
+{
+  "name": "coursework2app",
+  "version": "1.0.0",
+  "description": "Website that can take user plain text messages and convert them to encoded messages, send them to other users",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Ciphers"
+  ],
+  "author": "Matthew Nichol",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "sqlite3": "^4.0.6"
+  }
+}
