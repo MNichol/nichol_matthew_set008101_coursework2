@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt');
 
 //Set up global variables being used
 var authenticated = false;
+var port = process.env.PORT || 5000;
 
 //Connection to Databases
 var db = new sqlite3.Database('./databases/users.db');
@@ -229,5 +230,5 @@ function login_authentication(data) {
 
 //Create the server on port 5000
 app.listen(5000, function(){
-    console.log('Server started: Use address http://localhost:5000/ to connect');
+    console.log('Server started: Use address http://localhost:' + port + '/ to connect');
 });
