@@ -229,6 +229,6 @@ function login_authentication(data) {
 
 
 //Create the server on port 5000
-app.listen(5000, function(){
+app.listen(port, function(){
     console.log('Server started: Use address http://localhost:' + port + '/ to connect');
 });
