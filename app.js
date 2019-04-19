@@ -78,12 +78,12 @@ app.get('/inbox', function(req,res,next){
 
 });
    
-
+//GET request for user specific INBOX
 app.get('/inbox/:userid',function(req,res){
-
+    //Create Variables to be used
     var u_name = req.params.userid
     var messageobject = [];
-    
+    //Check msgdb for all messages sent to this specific user
     msgdb.all('SELECT * FROM inbox WHERE recipiant=$name',{
         $name: u_name
     }, function(err,row){
@@ -115,11 +115,7 @@ app.get('/inbox/:userid',function(req,res){
         })
     }
 );
-    
-
-
-
-    
+        
 });
 
     /*
@@ -164,18 +160,50 @@ app.post('/inbox', function(req,res){
 
 app.post('/accounts',function(req,res){
 
+    var checked = false;
+
     var login = {
         u_name: req.body.user_name,
         u_pass: req.body.user_pass
     }
 
-    login_authentication(login);
+    if(checked == false){
+        db.all('SELECT * FROM profiles WHERE u_name=$name',{
+            $name: login.u_name,
+        }, function(err,row){
+            if (err){
+                console.log(err)
+            }
+            console.log(row)
+            if (row === undefined || row.length == 0){
+                res.redirect('/inbox')
+                checked = true;
+            } else {
+                useraccount = row[0]
+                bcrypt.compare(login.u_pass, useraccount.hashed, function(err, res) {
+                    if (res){
+                        authenticated = true;
+                    }
+                    else {
+                        authenticated = false;
+                    }
+                })
+            }
+        });
+    }; 
 
-    if(authenticated = true){
-        res.redirect('inbox/'+login.u_name);
-    } else {
-        window.alert('Username/Password combination incorrect')
-    }
+    //Waiting for authentication check to complete first
+    setTimeout(function(){
+        if(checked == true){
+            console.log('User account does not exist')
+        } else {
+            if(authenticated == true){
+                res.redirect('/inbox/'+ login.u_name);
+            } else {
+                res.redirect('/inbox');
+            }
+        } 
+    }, 1000);
 
 
 });
@@ -202,31 +230,6 @@ function table_creation_inbox(data){
         stmt.finalize();
     });
 };
-
-
-function login_authentication(data) {
-    db.all('SELECT * FROM profiles WHERE u_name=$name',{
-        $name: data.u_name,
-    }, function(err,row){
-        if (err){
-            console.log(err);
-        }
-        var useraccount = row[0];
-        bcrypt.compare(data.u_pass, useraccount.hashed, function(err, res) {
-            if (res){
-                console.log('True');
-                authenticated = true;
-                return authenticated
-            }
-            else {
-                console.log('False');
-                authenticated = false;
-                return authenticated
-            }
-        })
-    });
-}
-
 
 //Create the server on port 5000
 app.listen(port, function(){
