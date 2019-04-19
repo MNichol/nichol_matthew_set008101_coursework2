@@ -3,8 +3,7 @@
 													*/
 
 //Function is for encrypting a message using ATBASH cipher
-function bash_encrypt() {
-	
+function bash_encrypt() {	
 	//Create an empty string for the encrypted message to be stored
 	var solved = "";
 	
@@ -14,6 +13,7 @@ function bash_encrypt() {
 
 	//Loop through each character in the user message 
 	for (var i = 0; i < usermsg.length; i++) {
+
 		
 		//Get the current message character for later use 
 		var msgchar = usermsg[i];
@@ -25,12 +25,16 @@ function bash_encrypt() {
 			//If the ascii code is within the capital letters range, do the following calculation
 			solved += String.fromCharCode(asciicode + (90 - asciicode - (asciicode - 65)))
 		//If the ascii code is not within the capital letters range, just pass the chracter on (assumed to be special i.e @;., 
-    } 	else {
+    	} else {
 		solved += msgchar;
-    }
-  }
-  //Display the solved variable to the Output section of the html page
-  document.getElementById("Output").innerHTML = solved;
+		}
+
+	}
+	  
+	//Display the solved variable to the Output section of the html page
+	document.getElementById("Output").innerHTML = solved;
+
+	check(solved);
 }
 
 
