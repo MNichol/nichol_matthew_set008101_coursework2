@@ -1,7 +1,7 @@
 {
   "name": "coursework2app",
   "version": "1.0.0",
-  "description": "Website that can take user plain text messages and convert them to encoded messages, send them to other users",
+  "description": "Website that can take user plain text messages and convert them to encoded messages, send them to other users has the ability to store data on users and messages",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
